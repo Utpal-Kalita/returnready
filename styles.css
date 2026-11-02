@@ -1,0 +1,54 @@
+:root{ --bg:#f6f4ef; --panel:#ffffff; --ink:#22242b; --muted:#7c7f8a; --accent:#2e7d5b; --accent-ink:#fff;
+  --safe:#2e7d5b; --soon:#b7791f; --urgent:#c0392b; --done:#8b94ab; }
+*{box-sizing:border-box; margin:0; padding:0;}
+body{background:var(--bg); color:var(--ink); font-family:"Segoe UI",system-ui,sans-serif; min-height:100vh;}
+header{display:flex; justify-content:space-between; align-items:center; padding:18px 26px; flex-wrap:wrap; gap:12px;}
+.brand{display:flex; align-items:center; gap:12px;}
+.logo{font-size:30px;}
+h1{font-size:22px;}
+.tagline{color:var(--muted); font-size:13px;}
+.cta{background:var(--accent); color:var(--accent-ink); border:0; border-radius:10px; padding:11px 20px; font-size:14px; font-weight:600; cursor:pointer;}
+main{max-width:860px; margin:0 auto; padding:0 20px 24px;}
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-bottom:14px;}
+.stat{background:var(--panel); border-radius:12px; padding:12px 16px; box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.stat b{display:block; font-size:22px;}
+.stat span{color:var(--muted); font-size:12px;}
+.filters{display:flex; gap:8px; margin-bottom:14px;}
+.filters button{background:var(--panel); border:1px solid #e3e0d8; border-radius:999px; padding:7px 16px; font-size:13px; cursor:pointer; color:var(--muted);}
+.filters button.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+.cards{display:flex; flex-direction:column; gap:10px;}
+.card{background:var(--panel); border-radius:14px; padding:14px 16px; display:flex; gap:14px; align-items:center; box-shadow:0 1px 3px rgba(0,0,0,.06); border-left:6px solid var(--safe);}
+.card.soon{border-left-color:var(--soon);}
+.card.urgent{border-left-color:var(--urgent);}
+.card.expired{border-left-color:var(--urgent); opacity:.8;}
+.card.returned{border-left-color:var(--done); opacity:.65;}
+.thumb{width:56px; height:56px; border-radius:10px; object-fit:cover; background:#eceae2; flex:none; cursor:pointer;}
+.thumb.placeholder{display:flex; align-items:center; justify-content:center; font-size:22px; cursor:default;}
+.card-main{flex:1; min-width:0;}
+.card-main h3{font-size:15.5px;}
+.card-main .meta{color:var(--muted); font-size:12.5px; margin-top:2px;}
+.countdown{text-align:right; flex:none;}
+.countdown b{display:block; font-size:19px;}
+.countdown.safe b{color:var(--safe);}
+.countdown.soon b{color:var(--soon);}
+.countdown.urgent b, .countdown.expired b{color:var(--urgent);}
+.countdown span{font-size:11px; color:var(--muted);}
+.card-actions{display:flex; flex-direction:column; gap:6px; flex:none;}
+.card-actions button{background:#f0eee7; border:0; border-radius:8px; padding:6px 10px; font-size:12px; cursor:pointer;}
+.empty{color:var(--muted); text-align:center; padding:40px 0;}
+dialog{border:0; border-radius:16px; padding:22px; width:min(440px,92vw);}
+dialog::backdrop{background:rgba(20,20,26,.45);}
+dialog h2{font-size:18px; margin-bottom:12px;}
+dialog label{display:block; font-size:13px; color:var(--muted); margin-bottom:10px;}
+dialog input[type=text], dialog input:not([type]), dialog input[type=date], dialog input[type=number]{display:block; width:100%; margin-top:4px; padding:9px 10px; border:1px solid #ddd8cc; border-radius:8px; font-size:14px; color:var(--ink); background:#fff;}
+fieldset{border:1px solid #e3e0d8; border-radius:10px; padding:10px 12px; margin-bottom:10px;}
+legend{font-size:12px; color:var(--muted); padding:0 6px;}
+.radio{display:flex; align-items:center; gap:6px; color:var(--ink) !important; font-size:13.5px !important;}
+.radio input[type=number], .radio input[type=date]{display:inline-block; width:auto;}
+menu{display:flex; justify-content:flex-end; gap:8px; margin-top:8px;}
+menu button{background:#f0eee7; border:0; border-radius:8px; padding:9px 16px; font-size:13px; cursor:pointer;}
+menu button.cta{background:var(--accent); color:#fff;}
+#receiptPreview img{max-width:120px; border-radius:8px; margin-top:6px;}
+#receiptDialog img{max-width:80vw; max-height:70vh; border-radius:10px;}
+footer{padding:16px 26px; color:var(--muted); font-size:12px; text-align:center;}
+@media (max-width:560px){ .card{flex-wrap:wrap;} .countdown{text-align:left;} }
