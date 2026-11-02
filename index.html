@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReturnReady - never miss a return deadline</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <span class="logo">⏳</span>
+    <div>
+      <h1>ReturnReady</h1>
+      <p class="tagline">Track return windows. Get your money back on time.</p>
+    </div>
+  </div>
+  <button id="addBtn" class="cta">+ Add purchase</button>
+</header>
+
+<main>
+  <section class="stats" id="stats"></section>
+  <nav class="filters" id="filters">
+    <button data-filter="all" class="on">All</button>
+    <button data-filter="urgent">Urgent</button>
+    <button data-filter="active">Active</button>
+    <button data-filter="returned">Returned</button>
+  </nav>
+  <section id="cards" class="cards"></section>
+  <p class="empty" id="empty" hidden>No purchases yet. Add your first one - it takes ten seconds.</p>
+</main>
+
+<dialog id="purchaseDialog">
+  <form id="purchaseForm" method="dialog">
+    <h2 id="dialogTitle">Add purchase</h2>
+    <input type="hidden" id="fId">
+    <label>Item name <input id="fName" required maxlength="80" placeholder="Blue running shoes"></label>
+    <label>Store <input id="fStore" required maxlength="60" placeholder="Example Shoes Co."></label>
+    <label>Purchase date <input id="fDate" type="date" required></label>
+    <fieldset>
+      <legend>Return policy - enter what the store told you. ReturnReady never guesses.</legend>
+      <label class="radio"><input type="radio" name="policyMode" value="days" checked> Window in days: <input id="fDays" type="number" min="1" max="365" value="30"> days</label>
+      <label class="radio"><input type="radio" name="policyMode" value="date"> Exact last day: <input id="fReturnBy" type="date"></label>
+    </fieldset>
+    <label>Price (optional) <input id="fPrice" type="number" min="0" step="0.01" placeholder="0.00"></label>
+    <label>Receipt photo (optional) <input id="fReceipt" type="file" accept="image/*"></label>
+    <div id="receiptPreview"></div>
+    <menu>
+      <button type="button" id="cancelBtn">Cancel</button>
+      <button type="submit" class="cta" id="saveBtn">Save</button>
+    </menu>
+  </form>
+</dialog>
+
+<dialog id="receiptDialog">
+  <img id="receiptFull" alt="Receipt">
+  <form method="dialog"><button class="cta">Close</button></form>
+</dialog>
+
+<footer>
+  <p>ReturnReady keeps everything in this browser (localStorage + IndexedDB). No account, no server, no data leaves your device. Deadlines come from the policy you enter - always double-check the store's own terms.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
